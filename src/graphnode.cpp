@@ -10,8 +10,8 @@ GraphNode::~GraphNode()
 {
     //// TODO: STUDENT CODE
     ////
-
-    delete _chatBot; 
+    // Does not have anything to do with it.
+    // delete _chatBot; 
 
     ////
     //// EOF STUDENT CODE
