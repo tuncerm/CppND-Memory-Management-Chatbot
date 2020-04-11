@@ -8,8 +8,7 @@
 class GraphNode; // forward declaration
 class ChatLogic; // forward declaration
 
-class ChatBot
-{
+class ChatBot {
 private:
     // data handles (owned)
     wxBitmap *_image; // avatar image
@@ -39,8 +38,11 @@ public:
 
     // getters / setters
     void SetCurrentNode(GraphNode *node);
+
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
+
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }
+
     wxBitmap *GetImageHandle() { return _image; }
 
     // communication
