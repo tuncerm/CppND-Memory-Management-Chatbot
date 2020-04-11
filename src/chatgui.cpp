@@ -139,7 +139,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog() {
 void ChatBotPanelDialog::AddDialogItem(wxString text, bool isFromUser) {
     // add a single dialog element to the sizer
     ChatBotPanelDialogItem *item = new ChatBotPanelDialogItem(this, text, isFromUser);
-    _dialogSizer->Add(item, 0, wxALL | (isFromUser == true ? wxALIGN_LEFT : wxALIGN_RIGHT), 8);
+    _dialogSizer->Add(item, 0, wxALL | (isFromUser ? wxALIGN_LEFT : wxALIGN_RIGHT), 8);
     _dialogSizer->Layout();
 
     // make scrollbar show up
@@ -191,7 +191,7 @@ wxPanel(parent,
 {
 // retrieve image from chatbot
 wxBitmap *bitmap =
-        isFromUser == true ? nullptr : ((ChatBotPanelDialog *) parent)->GetChatLogicHandle()->GetImageFromChatbot();
+        isFromUser ? nullptr : ((ChatBotPanelDialog *) parent)->GetChatLogicHandle()->GetImageFromChatbot();
 
 // create image and text
 _chatBotImg = new wxStaticBitmap(this, wxID_ANY,
