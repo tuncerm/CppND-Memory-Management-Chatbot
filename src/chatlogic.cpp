@@ -46,7 +46,7 @@ ChatLogic::~ChatLogic()
 //    {
 //        delete *it;
 //    }
-    _edges.clear();
+//    _edges.clear();
     ////
     //// EOF STUDENT CODE
 }
@@ -160,7 +160,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                             auto childNode = std::find_if(_nodes.begin(), _nodes.end(), [&childToken](std::unique_ptr<GraphNode> &node) { return node->GetID() == std::stoi(childToken->second); });
 
                             // create new edge
-                            std::unique_ptr<GraphEdge> edge = std::make_unique<GraphEdge>(GraphEdge(id));
+                            std::unique_ptr<GraphEdge> edge = std::make_unique<GraphEdge>(id);
                             edge->SetChildNode(childNode->get());
                             edge->SetParentNode(parentNode->get());
 
@@ -169,8 +169,8 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
 
                             // store reference in child node and parent node
                             childNode->get()->AddEdgeToParentNode(edge.get());
-                            parentNode->get()->AddEdgeToChildNode(edge.get());
-                            _edges.push_back(std::move(edge));
+                            parentNode->get()->AddEdgeToChildNode(std::move(edge));
+                            //_edges.push_back(std::move(edge));
                         }
 
                         ////
